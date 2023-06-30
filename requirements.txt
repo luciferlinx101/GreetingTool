@@ -1,0 +1,6 @@
+annotated-types==0.5.0
+pydantic==2.0
+pydantic_core==2.0.1
+PyYAML==6.0
+superagi-tools==1.0.1
+typing_extensions==4.7.0
