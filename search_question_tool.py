@@ -4,7 +4,7 @@ from typing import Type
 
 
 class BrowseStackOverflowSchema(BaseModel):
-    query: str = Field(..., description="Query to search StackOverflow with (your coding problem)"),
+    query: str = Field(..., description="Query to search StackOverflow with (your coding problem)")
     k: int = Field(..., description="Maximum number of answers allowed in response")
 
 class BrowseStackOverflowTool(BaseTool):
