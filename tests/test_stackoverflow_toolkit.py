@@ -1,7 +1,7 @@
 import unittest
 
 from greetings_tool import GreetingsTool
-from greetings_toolkit import GreetingsToolkit
+from stackoverflow_toolkit import GreetingsToolkit
 
 
 class GreetingsToolkitTests(unittest.TestCase):
