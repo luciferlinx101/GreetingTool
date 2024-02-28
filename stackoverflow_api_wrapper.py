@@ -40,12 +40,15 @@ class StackOverflowAPIWrapper:
     def __prepare_qa_output(self, questions, answers):
         output = ""
 
-        for i, key in enumerate(questions.keys()):
-            output += f"""
-                Question {i+1}: {questions[key][0]} \n \
-                Description: {questions[key][1]} \n \
-                Answer: {answers[key]}
-            """
+        for i, key in enumerate(answers.keys()):
+            try:
+                output += f"""
+                    Question {i+1}: {questions[key][0]} \n \
+                    Description: {questions[key][1]} \n \
+                    Answer: {answers[key]}
+                """
+            except KeyError:  # to handle cases of corrupt / missing data
+                continue
 
         return output
 
@@ -58,5 +61,5 @@ class StackOverflowAPIWrapper:
         print(f"Answers found: {len(answers)}")
         return self.__prepare_qa_output(questions, answers)
 
-# client = StackOverflowAPIWrapper(2)
-# print(client.search_advanced("invalid argument", "Java.net.SocketException", ["java", "request"]))
+client = StackOverflowAPIWrapper(5)
+print(client.search_advanced("pygame module not found", "pygame", ['python', 'pygame']))
